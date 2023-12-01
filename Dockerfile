@@ -1,8 +1,8 @@
-# Set the base image to use for subsequent instructions
-FROM alpine:3.18
+FROM python:3.9
+LABEL authors="Konstantin.Chaika"
 
-# Copy any source file(s) required for the action
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-# Configure the container to be run as an executable
-ENTRYPOINT ["/entrypoint.sh"]
+COPY requirements.txt LinksChecker/requirements.txt
+RUN pip3 install -r LinksChecker/requirements.txt
+COPY main.py LinksChecker/main.py
+
+CMD ["python3", "/LinksChecker/main.py", "--dir=/repo"]
