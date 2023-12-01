@@ -70,11 +70,13 @@ def check_link(task_folder, link):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--dir', type=str, help='Path to course directory', default='./')
-    args = parser.parse_args()
+    args = sys.argv
+    if len(args) < 2:
+        print("No path provided")
+        exti(1)
+    
 
-    course_directory = args.dir
+    course_directory = args[1]
     task_description_name = 'task.md'
 
     print("\n===== Common info =====")
