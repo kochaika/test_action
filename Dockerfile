@@ -5,5 +5,5 @@ COPY requirements.txt LinksChecker/requirements.txt
 RUN pip3 install -r LinksChecker/requirements.txt
 COPY main.py LinksChecker/main.py
 
-ENTRYPOINT ["python3h", "/LinksChecker/main.py"]
+ENTRYPOINT ["python3h", "/LinksChecker/main.py", $GITHUB_WORKSPACE]
 #CMD ["python3", "/LinksChecker/main.py", "--dir=/repo"]
