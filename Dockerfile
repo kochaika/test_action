@@ -20,10 +20,4 @@ ENV COM_JETBRAINS_EDU_PROJECT_PYTHON_INTERPRETER="/usr/bin/python3"
 
 RUN $QODANA_DIST/bin/idea.sh installCoursePlugins --marketplace $MARKETPLACE_COURSE_ID -Dplugin.path=/opt/plugins/JetBrainsAcademy -Djava.awt.headless=true
 
-ENTRYPOINT ["/opt/idea/bin/idea.sh",
-            "validateCourse",
-            "/project/data",
-            "--marketplace=16630",
-            "--tests=true",
-            "--links=true",
-            "-Dplugin.path=/opt/plugins/JetBrainsAcademy"]
+ENTRYPOINT ["/opt/idea/bin/idea.sh", "validateCourse", "/project/data", "--marketplace=16630", "--tests=true", "--links=true", "-Dplugin.path=/opt/plugins/JetBrainsAcademy"]
