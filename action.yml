@@ -9,14 +9,14 @@
 #     - echo Hello, world!
 #     - ls -la $GITHUB_WORKSPACE
 
-name: 'Test'
-description: 'Test action'
-inputs:
-  dir:  # id of input
-    description: 'course dir'
-    required: true
+name: 'Idea'
+description: 'Prepare Idea Academy'
+#inputs:
+#  dir:  # id of input
+#    description: 'course dir'
+#    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.dir}}
+#  args:
+#    - ${{ inputs.dir}}
