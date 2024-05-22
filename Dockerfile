@@ -7,11 +7,14 @@ ARG JET_BRAINS_ACADEMY_PLUGIN=JetBrainsAcademy.zip
 ARG MARKETPLACE_COURSE_ID=16630
 
 COPY $JET_BRAINS_ACADEMY_PLUGIN "/tmp/JetBrainsAcademy.zip"
+COPY toml.zip "/tmp/toml.zip"
 
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends unzip python3 && \
     unzip /tmp/JetBrainsAcademy.zip && \
     mkdir /opt/plugins && mv JetBrainsAcademy /opt/plugins/ && \
+    unzip /tmp/toml.zip && \
+    mv toml /opt/plugins/ && \
     apt-get purge --auto-remove -y unzip && \
     rm -rf /var/cache/apt /var/lib/apt/ /tmp/*
 
